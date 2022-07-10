@@ -69,6 +69,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  overflow-y: scroll;
 }
 
 .poke-img:hover {
@@ -86,6 +87,9 @@
   border-top-right-radius: 0.75rem;
   background-color: white;
 }
+.poke-img {
+  width: 18rem;
+}
 
 @media (max-width: 547px) {
   .vh100 {
@@ -93,5 +97,12 @@
   }
   .poke-font {
     font-size: 10px;
+  }
+  .poke-img {
+    width: 14rem;
+    margin-bottom: 10px;
+  }
+  .bg-poke {
+    background-size: cover;
   }
 }

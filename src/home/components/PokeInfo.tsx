@@ -23,7 +23,10 @@ export const PokeInfo = () => {
   if (data) {
     return (
       <div key={pokeName} className="d-flex flex-wrap bg-poke">
-        <div className="d-flex flex-wrap w-100 align-items-end  animate__animated animate__fadeInLeft vh100">
+        <div
+          className="d-flex flex-wrap w-100 align-items-end  animate__animated animate__fadeInLeft"
+          style={{ height: "100vh" }}
+        >
           <button
             className="btn btn-dark poke-font mx-5 mt-3"
             onClick={() => {
@@ -35,9 +38,7 @@ export const PokeInfo = () => {
           </button>
           <div className="d-flex flex-wrap">
             <div>
-              <blockquote className="blockquote poke-font fw-bold">
-                ABILITIES
-              </blockquote>
+              <h4 className="poke-font fw-bold">ABILITIES</h4>
               <div>
                 {data?.abilities.map((m, ind) => {
                   return (
@@ -51,38 +52,29 @@ export const PokeInfo = () => {
               </div>
             </div>
 
-            <div className="mt-3">
+            <div className="mt-3 mx-3">
               <h4 className="poke-font fw-bold">{pokeName?.toUpperCase()}</h4>
               <img
                 alt="..."
                 src={data?.sprites.front_default}
-                style={{
-                  width: "18rem",
-                }}
                 className="poke-img"
               />
             </div>
-            <div className="mx-2">
-              <blockquote className="poke-font fw-bold blockquote mt-3">
-                TYPES
-              </blockquote>
+            <div className="mx-3">
+              <h4 className="poke-font fw-bold mt-3">TYPES</h4>
               <div>
                 {data?.types.map((t, ind) => {
                   return <PokeType key={ind} type={t.type} />;
                 })}
               </div>
             </div>
-            <div className="mx-2">
-              <blockquote className="blockquote poke-font fw-bold mt-3">
-                WEIGHT
-              </blockquote>
-              <span className="fw-bold poke-font">{data?.weight}</span>
+            <div className="mx-3">
+              <h4 className=" poke-font fw-bold mt-3">WEIGHT</h4>
+              <span className="fw-bold poke-font">{data?.weight}kg</span>
             </div>
-            <div className="mx-2">
-              <blockquote className="blockquote poke-font fw-bold mt-3">
-                HEIGHT
-              </blockquote>
-              <span className="fw-bold poke-font">{data?.height}</span>
+            <div className="mx-3">
+              <h4 className=" poke-font fw-bold mt-3">HEIGHT</h4>
+              <span className="fw-bold poke-font">{data?.height}kg</span>
             </div>
           </div>
         </div>
