@@ -25,7 +25,7 @@ export const PokeCard = ({ poke }: IPokeProps) => {
     <>
       <Link
         onClick={handleClick}
-        to={`/${poke.name}`}
+        to={`/pokemon/${poke.name}`}
         className="shadow poke_card text-decoration-none"
       >
         <div className="d-flex">

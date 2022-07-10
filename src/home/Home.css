@@ -76,3 +76,11 @@
   animation-duration: 1s;
   cursor: pointer;
 }
+.vh100 {
+  height: 100vh;
+}
+@media (max-width: 547px) {
+  .vh100 {
+    height: auto;
+  }
+}

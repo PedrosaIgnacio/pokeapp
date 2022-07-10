@@ -9,7 +9,7 @@ export const AppRouter = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/:name" element={<PokeInfo />} />
+          <Route path="/pokemon/:name" element={<PokeInfo />} />
         </Routes>
       </BrowserRouter>
     </>

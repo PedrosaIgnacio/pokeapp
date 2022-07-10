@@ -1,15 +1,18 @@
-import { Form, Formik } from "formik";
+import { Field, Form, Formik } from "formik";
 import React from "react";
 import { Layout } from "../layout/Layout";
 import * as Yup from "yup";
 import { useGetPokemons } from "../hooks/useGetPokemons";
 import { PokeCard } from "./components/PokeCard";
+import { useNavigate } from "react-router-dom";
 
 interface IInitialValues {
   name: string;
 }
 
 export const Home = () => {
+  const navigate = useNavigate();
+
   const formSchema = Yup.object({
     name: Yup.string().required("Required Field"),
   });
@@ -17,8 +20,11 @@ export const Home = () => {
   const initialValues: IInitialValues = {
     name: "",
   };
-
   const { data: pokemons } = useGetPokemons();
+
+  const handleSearch = (name: string) => {
+    navigate(`?q=${name}`);
+  };
 
   return (
     <Layout>
@@ -26,12 +32,17 @@ export const Home = () => {
         <Formik
           initialValues={initialValues}
           validationSchema={formSchema}
-          onSubmit={() => console.log("Click")}
+          onSubmit={(values) => handleSearch(values.name)}
         >
           <Form className="mt-3">
             <div className="d-flex justify-content-center">
               <div className="form-group col-lg-2 col-md-3 col-sm-4">
-                <input className="form-control" placeholder="Search pokemon" />
+                <Field
+                  name="name"
+                  id="name"
+                  className="form-control"
+                  placeholder="Search pokemon"
+                />
               </div>
             </div>
             <div className="d-flex justify-content-center mt-3">
