@@ -79,8 +79,19 @@
 .vh100 {
   height: 100vh;
 }
+.dialog {
+  border: 3px solid black;
+  border-top-left-radius: 0.75rem;
+  border-bottom-right-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
+  background-color: white;
+}
+
 @media (max-width: 547px) {
   .vh100 {
     height: auto;
+  }
+  .poke-font {
+    font-size: 10px;
   }
 }

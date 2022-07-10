@@ -8,6 +8,7 @@ interface IAbilityProps {
 }
 export const PokeAbility = ({ url, name }: IAbilityProps) => {
   const { data } = useGetAbility(url, name);
+
   return (
     <>
       <div className="d-flex align-items-center mt-4 p-3 justify-content-start">

@@ -3,24 +3,29 @@ import { Link } from "react-router-dom";
 import { useGetPokemonById } from "../../hooks/useGetPokemonById";
 import { PokeType } from "./PokeType";
 import audio from "../../audio/clickAudio.mp3";
+
 interface IPokemon {
   name: string;
   url: string;
 }
+
 interface IPokeProps {
   poke: IPokemon;
 }
 
 export const PokeCard = ({ poke }: IPokeProps) => {
   const { data: pokedata } = useGetPokemonById(poke.name);
+
   const { Howl } = require("howler");
 
   var sound = new Howl({
     src: [audio],
   });
+
   const handleClick = () => {
     sound.play();
   };
+
   return (
     <>
       <Link
