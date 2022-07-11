@@ -6,7 +6,7 @@ export const SearchBar = () => {
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const url = new URLSearchParams();
     if (e.target.value !== "") {
-      url.set("q", e.target.value);
+      url.set("q", e.target.value.toLowerCase());
     }
     navigation(`?${url.toString()}`, { replace: true });
   };

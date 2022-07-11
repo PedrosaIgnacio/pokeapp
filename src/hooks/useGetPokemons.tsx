@@ -22,7 +22,7 @@ interface Pokemons {
 export const useGetPokemons = (name?: string): Pokemons => {
   const pokemon = useQuery(`pokemons`, async () => {
     return await axios.get(
-      `https://pokeapi.co/api/v2/pokemon?limit=152&offset=0"`
+      `https://pokeapi.co/api/v2/pokemon?limit=151&offset=0"`
     );
   });
 
