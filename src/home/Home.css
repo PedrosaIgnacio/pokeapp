@@ -106,3 +106,9 @@
     background-size: cover;
   }
 }
+.form-control {
+  text-align: center;
+}
+.form-control::placeholder {
+  text-align: center;
+}

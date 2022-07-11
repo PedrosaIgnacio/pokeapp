@@ -1,4 +1,5 @@
 import axios from "axios";
+import React, { useMemo } from "react";
 import { useQuery } from "react-query";
 
 interface IPokemon {
@@ -13,20 +14,30 @@ interface IPokemonList {
 }
 
 interface Pokemons {
-  data: IPokemonList;
+  data: IPokemonList["results"];
   loading: boolean;
   error: boolean;
 }
 
-export const useGetPokemons = (): Pokemons => {
-  const pokemons = useQuery("pokemons", async () => {
+export const useGetPokemons = (name?: string): Pokemons => {
+  const pokemon = useQuery(`pokemons`, async () => {
     return await axios.get(
-      "https://pokeapi.co/api/v2/pokemon?limit=152&offset=0"
+      `https://pokeapi.co/api/v2/pokemon?limit=152&offset=0"`
     );
   });
+
+  const filteredPoks = useMemo(() => {
+    if (name === undefined) {
+      return (pokemon.data?.data as IPokemonList)?.results;
+    }
+    return (pokemon.data?.data as IPokemonList)?.results.filter((p) => {
+      return p.name.includes(name);
+    });
+  }, [pokemon, name]);
+
   return {
-    data: pokemons.data?.data,
-    loading: pokemons.isLoading,
-    error: pokemons.isError,
+    data: filteredPoks,
+    loading: pokemon.isLoading,
+    error: pokemon.isError,
   };
 };
