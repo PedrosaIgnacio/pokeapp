@@ -29,9 +29,9 @@ export const PokeInfo = () => {
         >
           <button
             className="btn btn-dark poke-font mx-5 mt-3"
-            onClick={() => {
+            onClick={async () => {
               sound.play();
-              navigate(-1);
+              await navigate("/", { replace: true });
             }}
           >
             BACK
@@ -70,11 +70,11 @@ export const PokeInfo = () => {
             </div>
             <div className="mx-3">
               <h4 className=" poke-font fw-bold mt-3">WEIGHT</h4>
-              <span className="fw-bold poke-font">{data?.weight}kg</span>
+              <span className="fw-bold poke-font">{data?.weight / 10}kg</span>
             </div>
             <div className="mx-3">
               <h4 className=" poke-font fw-bold mt-3">HEIGHT</h4>
-              <span className="fw-bold poke-font">{data?.height}kg</span>
+              <span className="fw-bold poke-font">{data?.height / 10}mts</span>
             </div>
           </div>
         </div>

@@ -6,7 +6,7 @@ export const NavBar = () => {
     <>
       <Navbar bg="white">
         <Container className="d-flex justify-content-center">
-          <Navbar.Brand href="#home">
+          <Navbar.Brand href="/">
             <img src={logo} alt="..." />
           </Navbar.Brand>
         </Container>

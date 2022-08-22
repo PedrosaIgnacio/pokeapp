@@ -17,9 +17,13 @@ export const Home = () => {
       <div style={{ backgroundColor: "#f5f5f7" }}>
         <SearchBar />
         <div className="d-flex flex-wrap justify-content-center mt-3">
-          {pokemons?.map((p, i) => {
-            return <PokeCard key={i} poke={p} />;
-          })}
+          {pokemons?.length === 0 ? (
+            <p className="text-danger">No hay resultados</p>
+          ) : (
+            pokemons?.map((p, i) => {
+              return <PokeCard key={i} poke={p} />;
+            })
+          )}
         </div>
       </div>
     </Layout>
